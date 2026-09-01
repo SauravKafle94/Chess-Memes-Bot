@@ -3,6 +3,7 @@ from discord.ext import commands
 import aiohttp
 import os
 from dotenv import load_dotenv
+from keep_alive import keep_alive
 
 # Load the secret token from the .env file
 load_dotenv()
@@ -28,5 +29,6 @@ async def chessmeme(ctx):
             else:
                 await ctx.send("Google en passant. (Failed to fetch meme)")
 
+keep_alive()
 # Tell the bot to use the hidden token
 bot.run(os.getenv('DISCORD_TOKEN'))
